@@ -1,6 +1,6 @@
 package com.loja.ecommerce.dtos;
 
-import com.loja.ecommerce.Models.usuario;
+import com.loja.ecommerce.models.usuario;
 import java.time.LocalDateTime;
 
 public record UsuarioResponse(

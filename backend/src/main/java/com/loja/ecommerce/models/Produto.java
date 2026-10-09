@@ -1,4 +1,4 @@
-package com.loja.ecommerce.Models;
+package com.loja.ecommerce.models;
 
 public class Produto {
     private String nome;
