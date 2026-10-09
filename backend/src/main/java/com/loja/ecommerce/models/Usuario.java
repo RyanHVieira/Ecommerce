@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "usuarios")
-public class usuario {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +18,7 @@ public class usuario {
     @Column(nullable = false)
     private LocalDateTime dataCriacao;
 
-    public usuario() {}
+    public Usuario() {}
 
     @PrePersist
     public void antesDeSalvar() {
