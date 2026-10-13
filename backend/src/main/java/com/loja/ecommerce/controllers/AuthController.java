@@ -12,19 +12,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
     private final AuthService authService;
-
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
 
     @PostMapping("/registrar")
-    public ResponseEntity<UsuarioResponse> registrar(
-            @Valid @RequestBody CriarUsuarioRequest request
-    ) {
+    public ResponseEntity<UsuarioResponse> registrar(@Valid @RequestBody CriarUsuarioRequest request){
         UsuarioResponse resposta = authService.registrar(request);
-
         return ResponseEntity.status(HttpStatus.CREATED).body(resposta);
     }
 }

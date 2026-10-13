@@ -3,15 +3,12 @@ package com.loja.ecommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import io.github.cdimascio.dotenv.Dotenv;
 
 @SpringBootApplication
 public class EcommerceApiApplication {
-
 	public static void main(String[] args) {
-		Dotenv dotenv = Dotenv.configure().directory("backend").ignoreIfMissing().load();
-
+		Dotenv dotenv = Dotenv.configure().directory(".").ignoreIfMissing().load();
 		SpringApplication app = new SpringApplication(EcommerceApiApplication.class);
 
 		app.setDefaultProperties(java.util.Map.of(
@@ -20,7 +17,6 @@ public class EcommerceApiApplication {
 			"DB_PASSWORD", dotenv.get("DB_PASSWORD"),
 			"DB_DRIVER", dotenv.get("DB_DRIVER")
 		));
-
 		app.run(args);
 	}
 }

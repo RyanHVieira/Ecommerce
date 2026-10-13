@@ -6,6 +6,15 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
+    public Usuario() {}
+
+    @PrePersist
+    public void antesDeSalvar() {
+        if (dataCriacao == null) {
+            dataCriacao = LocalDateTime.now();
+        }
+    }
+    //table
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,44 +27,18 @@ public class Usuario {
     @Column(nullable = false)
     private LocalDateTime dataCriacao;
 
-    public Usuario() {}
-
-    @PrePersist
-    public void antesDeSalvar() {
-        if (dataCriacao == null) {
-            dataCriacao = LocalDateTime.now();
-        }
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+    //getters
+    public Long getId() { return id; }
+    public String getNome() { return nome; }
     public String getEmail() {
         return email;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    public LocalDateTime getDataCriacao() { return dataCriacao; }
     public String getSenha() {
         return senha;
     }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
+    //setters
+    public void setNome(String nome) { this.nome = nome;}
+    public void setEmail(String email) { this.email = email; }
+    public void setSenha(String senha) { this.senha = senha; }
 }
